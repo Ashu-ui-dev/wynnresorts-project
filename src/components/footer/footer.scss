@@ -1,0 +1,355 @@
+$color-error: #d9534f;
+
+.main-footer {
+  .newsletter-section {
+    background-color: #fff;
+    padding: 60px 0;
+
+    .newsletter-container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 1fr 2fr 2fr;
+      gap: 40px;
+      align-items: center;
+
+      h2 {
+        font-family: Big Caslon;
+        font-weight: 500;
+        font-size: 21px;
+        line-height: 31.08px;
+        letter-spacing: 0%;
+        
+      }
+
+      p {
+        font-family: Avenir LT Std;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0%;
+        color: #565759;
+
+      }
+
+      .newsletter-form {
+        display: flex;
+        gap: 16px;
+
+        .email-input {
+          flex: 1;
+          padding: 12px 16px;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+          font-size: 16px;
+
+          &::placeholder {
+            color: #999;
+          }
+        }
+
+        .subscribe-button {
+          padding: 12px 24px;
+          background: transparent;
+          border: 1px solid #2D6A4F;
+          color: #2D6A4F;
+          border-radius: 4px;
+          font-size: 14px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background: #2D6A4F;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+
+  .footer-content {
+    background-color: #4A3728;
+    color: white;
+    padding: 60px 0 0;
+
+    .footer-container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .footer-links {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      margin-bottom: 60px;
+
+      .footer-column {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        a {
+          color: white;
+          text-decoration: none;
+          font-size: 14px;
+          transition: opacity 0.3s ease;
+
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+
+        .property-links {
+          margin-bottom: 40px;
+        }
+
+        .location-info {
+          margin-bottom: 40px;
+
+          p {
+            margin: 8px 0;
+            font-size: 14px;
+          }
+        }
+
+        .social-section {
+          p {
+            margin-bottom: 16px;
+            font-size: 14px;
+          }
+
+          .social-links {
+            display: flex;
+            gap: 16px;
+
+            .social-icon {
+              width: 32px;
+              height: 32px;
+              background-color: white;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              transition: opacity 0.3s ease;
+
+              &:hover {
+                opacity: 0.8;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 20px 0;
+
+      .footer-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .privacy-link {
+          color: white;
+          text-decoration: none;
+          font-size: 14px;
+          
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+
+        .copyright {
+          color: rgba(255, 255, 255, 0.7);
+          font-size: 14px;
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1440px) {
+    .newsletter-section .newsletter-container,
+    .footer-container {
+      max-width: 100%;
+      padding: 0 40px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .newsletter-section {
+      padding: 40px 0;
+
+      .newsletter-container {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        text-align: center;
+        padding: 0 20px;
+
+        h2 {
+          font-size: 28px;
+        }
+
+        .newsletter-form {
+          flex-direction: column;
+          max-width: 500px;
+          margin: 0 auto;
+          width: 100%;
+        }
+      }
+    }
+
+    .footer-content {
+      padding: 40px 0 0;
+
+      .footer-links {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+        margin-bottom: 40px;
+
+        .footer-column:last-child {
+          grid-column: span 2;
+
+          .property-links {
+            margin-bottom: 32px;
+          }
+
+          .location-info {
+            margin-bottom: 32px;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .newsletter-section {
+      padding: 32px 0;
+
+      .newsletter-container {
+        h2 {
+          font-size: 24px;
+        }
+
+        p {
+          font-size: 14px;
+        }
+      }
+    }
+
+    .footer-content {
+      padding: 32px 0 0;
+
+      .footer-links {
+        grid-template-columns: 1fr;
+        gap: 32px;
+
+        .footer-column:last-child {
+          grid-column: span 1;
+        }
+
+        .footer-column {
+          text-align: center;
+
+          .social-section .social-links {
+            justify-content: center;
+          }
+        }
+      }
+
+      .footer-bottom {
+        .footer-container {
+          flex-direction: column;
+          gap: 16px;
+          text-align: center;
+          padding: 16px 20px;
+
+          .privacy-link,
+          .copyright {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .newsletter-section {
+      padding: 24px 0;
+
+      .newsletter-container {
+        gap: 16px;
+        padding: 0 16px;
+
+        h2 {
+          font-size: 20px;
+        }
+
+        .newsletter-form {
+          .email-input,
+          .subscribe-button {
+            padding: 10px 16px;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+
+    .footer-content {
+      .footer-container {
+        padding: 0 16px;
+      }
+
+      .footer-links {
+        gap: 24px;
+        margin-bottom: 24px;
+
+        .footer-column {
+          gap: 12px;
+
+          a {
+            font-size: 13px;
+          }
+
+          .property-links {
+            margin-bottom: 24px;
+          }
+
+          .location-info {
+            margin-bottom: 24px;
+            
+            p {
+              font-size: 13px;
+            }
+          }
+
+          .social-section {
+            p {
+              font-size: 13px;
+            }
+
+            .social-links {
+              gap: 12px;
+
+              .social-icon {
+                width: 28px;
+                height: 28px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+} 
+
+
+.error-message {
+  color: #FF0000;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+}

@@ -1,0 +1,108 @@
+.main-header {
+  background-color: #fff;
+  padding: 20px 0;
+  border-bottom: 1px solid #e5e5e5;
+  position: sticky;
+  top: 0;
+  z-index: 1000; 
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); 
+  min-width: 100%; 
+  box-sizing: border-box; 
+  overflow-x: hidden; 
+
+  .header-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box; 
+  }
+
+  .logo-container {
+    .wynn-logo {
+      height: 40px;
+      width: auto;
+    }
+  }
+
+  .main-nav {
+    flex: 1;
+    margin: 0 40px;
+
+    .nav-items {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin: 0;
+      padding: 0;
+
+      .nav-item {
+        a {
+          text-decoration: none;
+          color: #000;
+          font-size: 14px;
+          font-weight: 500;
+          letter-spacing: 0.5px;
+          transition: color 0.2s ease;
+
+          &:hover {
+            color: #8B7355; // Adjust this color to match Wynn's brand color
+          }
+        }
+      }
+    }
+  }
+
+  .language-selector {
+    .language-button {
+      background: none;
+      border: none;
+      font-size: 14px;
+      font-weight: 500;
+      color: #000;
+      cursor: pointer;
+      padding: 8px;
+      
+      &:hover {
+        color: #8B7355;
+      }
+
+      &::after {
+        content: '▼';
+        font-size: 8px;
+        margin-left: 4px;
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+// Responsive styles
+@media (max-width: 1024px) {
+  .main-header {
+    .main-nav {
+      .nav-items {
+        gap: 20px;
+        flex-wrap: wrap; // Allow items to wrap if needed
+        
+        .nav-item a {
+          font-size: 13px;
+          white-space: nowrap; // Prevent text wrapping
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .main-header {
+    .main-nav {
+      display: none; // You might want to implement a mobile menu instead
+    }
+  }
+} 
