@@ -10,7 +10,7 @@ Enter OTP Page: Users enter the received OTP to complete the registration.
 
 🌐 Live Demo
 
-Netlify Deployment (Add your Netlify URL here after deployment)
+https://517e7f31.wynnresorts-project.pages.dev/
 
 🚀 Tech Stack
 
