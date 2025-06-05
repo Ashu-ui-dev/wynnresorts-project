@@ -1,13 +1,36 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import facebookIcon from '../../assets/images/fb.png';
+import androidIcon from '../../assets/images/android.png';
+import appleIcon from '../../assets/images/apple.png';
+import instagramIcon from '../../assets/images/instagram.png';
+import twitterIcon from '../../assets/images/twitter.png';
+
 import './footer.scss';
+
+type FooterLink = {
+  label: string;
+  path: string;
+};
+
+type FooterLinks = {
+  column1: FooterLink[];
+  column2: FooterLink[];
+  column3: FooterLink[];
+};
+
+type SocialLink = {
+  icon: string;
+  url: string;
+};
 
 const Footer = () => {
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState('')
-  const [error,setError] = useState()
-  const footerLinks = {
+  const [email, setEmail] = useState<string>('');
+  const [error, setError] = useState<string | undefined>();
+
+  const footerLinks: FooterLinks = {
     column1: [
       { label: 'Shop Home Collection', path: '/shop' },
       { label: 'Gift Cards', path: '/gift-cards' },
@@ -32,20 +55,20 @@ const Footer = () => {
     ],
   };
 
-  const socialLinks = [
-    { icon: 'facebook', url: '#' },
-    { icon: 'weibo', url: '#' },
-    { icon: 'apple', url: '#' },
-    { icon: 'instagram', url: '#' },
-    { icon: 'twitter', url: '#' },
+  const socialLinks: SocialLink[] = [
+    { icon: facebookIcon , url: '#' },
+    { icon: androidIcon, url: '#' },
+    { icon: appleIcon, url: '#' },
+    { icon: instagramIcon, url: '#' },
+    { icon: twitterIcon, url: '#' },
   ];
 
   const handleNewsLetterSubmit = async () => {
     const formData = {
-      newLetterEmail: email
+      newLetterEmail: email,
     };
-    if (email.length) {
 
+    if (email.length) {
       try {
         const response = await fetch("https://67a77275203008941f67a4de.mockapi.io/asdfpi/formdata", {
           method: "POST",
@@ -56,27 +79,30 @@ const Footer = () => {
         if (!response.ok) {
           throw new Error("Failed to submit data");
         }
-      } catch (error) {
+      } catch (error: any) {
         console.error("Error submitting form:", error);
-        setError(error.message)
+        setError(error.message);
       }
     }
-  }
+  };
 
   return (
     <footer className="main-footer">
       <div className="newsletter-section">
         <div className="newsletter-container">
           <h2>Get News & Updates</h2>
-          <p>Get latest developments and exciting news on how we are shaping the future!</p>
+          <p>Get latest developments and exciting news on<br/>how we are shaping the future!</p>
           <div className="newsletter-form">
             <input
               type="email"
               placeholder="Your email address"
               className="email-input"
+              value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <button className="subscribe-button" onClick={handleNewsLetterSubmit} >JOIN THE NEWSLETTER</button>
+            <button className="subscribe-button" onClick={handleNewsLetterSubmit}>
+              JOIN THE NEWSLETTER
+            </button>
           </div>
           {error && <div className="error-message">{error}</div>}
         </div>
@@ -87,20 +113,26 @@ const Footer = () => {
           <div className="footer-links">
             <div className="footer-column">
               {footerLinks.column1.map((link) => (
-                <Link key={link.path} to={link.path}>{link.label}</Link>
+                <Link key={link.path} to={link.path}>
+                  {link.label}
+                </Link>
               ))}
             </div>
 
             <div className="footer-column">
               {footerLinks.column2.map((link) => (
-                <Link key={link.path} to={link.path}>{link.label}</Link>
+                <Link key={link.path} to={link.path}>
+                  {link.label}
+                </Link>
               ))}
             </div>
 
             <div className="footer-column">
               <div className="property-links">
                 {footerLinks.column3.map((link) => (
-                  <Link key={link.path} to={link.path}>{link.label}</Link>
+                  <Link key={link.path} to={link.path}>
+                    {link.label}
+                  </Link>
                 ))}
               </div>
 
@@ -115,7 +147,7 @@ const Footer = () => {
                 <div className="social-links">
                   {socialLinks.map((social) => (
                     <a key={social.icon} href={social.url} className={`social-icon ${social.icon}`}>
-                      {/* <span className="sr-only">{social.icon}</span> */}
+                      <img className="sr-only" src={social.icon}/>
                     </a>
                   ))}
                 </div>
@@ -123,6 +155,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
+
         <div className="footer-bottom">
           <div className="footer-container">
             <Link to="/privacy/do-not-sell" className="privacy-link">
