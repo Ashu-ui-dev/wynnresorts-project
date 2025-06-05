@@ -1,3 +1,5 @@
+@import '../../mixins/global.scss';
+
 .header-section {
   display: flex;
   justify-content: space-between;
@@ -5,13 +7,14 @@
   margin-bottom: 1rem;
 
   h1 {
-    font-family: 'Your-Serif-Font', serif;
+    font-family: 'Big Caslon';
     font-weight: normal;
     font-size: 2.5rem;
+    color: #1D1F22;
   }
 
   .step-indicator {
-    color: #000;
+    color: #1D1F22;
     font-family: Big Caslon;
     font-size: 1rem;
   }
@@ -22,6 +25,10 @@
   padding: 48px;
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+
+  @include mobile{
+    padding: 24px;
+  }
 
   h4 {
     font-family: 'Fraunces', serif;
@@ -103,7 +110,7 @@
 }
 
 .registration-container {
-  max-width: 630px;
+  max-width: 590px;
   margin: 48px auto;
 
   h1 {
@@ -121,7 +128,7 @@
   .step-indicator {
     text-align: right;
     font-size: 20px;
-    color: #333;
+    color: #1D1F22;
     margin-bottom: 32px;
     font-family: Big Caslon;
   }

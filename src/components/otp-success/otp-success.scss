@@ -34,17 +34,17 @@
     input {
       width: 64px;
       height: 64px;
-      border: 1px solid #E5E5E5;
+      border: 1px solid #5A3A27;
       border-radius: 8px;
       font-size: 32px;
       text-align: center;
-      color: #333;
+      color: #5A3A27;
       background: #fff;
 
       
       &:focus {
         outline: none;
-        border-color: #2E7D6B;
+        border-color: #5A3A27;
       }
     }
   }
